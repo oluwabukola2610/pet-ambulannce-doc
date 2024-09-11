@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import { image } from "@/constants";
 import CustomButton from "@/components/CustomButton";
 import CustomOtp from "@/components/CsutomOtp";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 
 const otp = () => {
   const [otp, setOtp] = useState("");
@@ -28,7 +28,7 @@ const otp = () => {
 
           <View className="mt-10 flex-1">
             <Text className="text-2xl font-normal text-general">
-              Reset Password
+              OTP Authentication
             </Text>
 
             <View className="w-full">
@@ -39,13 +39,21 @@ const otp = () => {
                 count={4}
               />
             </View>
+            <View className="flex-row items-center mt-4 justify-center gap-x-2">
+              <Text className="text-sm font-normal text-green-600">
+                Didn’t receive the code?
+              </Text>
+              <Link href="/otp" className="text-sm font-normal text-[#C02286]">
+                Resend
+              </Link>
+            </View>
           </View>
         </View>
         {/* Submit Button */}
         <View className="p-6 absolute bottom-9 left-0 right-0">
           <CustomButton
             title="Reset Password"
-            handlePress={()=>router.push("/change-password")}
+            handlePress={() => router.push("/change-password")}
             containerStyles="bg-[#008543]"
             textStyles="text-white"
           />
