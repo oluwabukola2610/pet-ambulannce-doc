@@ -54,10 +54,7 @@ const Clinical = () => {
         className="absolute w-full h-full top-0 left-0"
         resizeMode="cover"
       />
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        keyboardShouldPersistTaps="handled"
-      >
+    
         <View className="p-6 z-10 w-full flex-1 mt-16">
           <Image source={image.logo} />
           <View className="pt-8 flex-1">
@@ -156,7 +153,6 @@ const Clinical = () => {
             />
           </View>
         </View>
-      </ScrollView>
     </KeyboardAvoidingView>
   );
 };

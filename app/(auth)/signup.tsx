@@ -59,9 +59,7 @@ const CreateAccount = () => {
 
   const onSubmit = (data: any) => {
     console.log("Form Data:", data);
-    router.push(
-      "/upload"
-    )
+    router.push("/upload");
   };
 
   const onChange = (event: any, selectedDate: any) => {
@@ -73,19 +71,21 @@ const CreateAccount = () => {
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1, position: "relative" }}
+      style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
+      // keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0} 
     >
       <Image
         source={image.plainbg}
         className="absolute bg-red-800 w-full h-full top-0 left-0"
         resizeMode="cover"
       />
+
       <ScrollView
-         contentContainerStyle={{ flexGrow: 1}}
+        contentContainerStyle={{ flexGrow: 1 }}
         keyboardShouldPersistTaps="handled"
       >
-        <View className="p-6 z-10 absolute mt-14 w-full h-full">
+        <View className="p-6 mt-14 w-full">
           <Image source={image.logo} />
           <View className="pt-8 flex-1">
             <Text className="text-2xl font-medium text-general">

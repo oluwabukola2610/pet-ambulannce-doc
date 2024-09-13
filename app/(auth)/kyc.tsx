@@ -55,97 +55,94 @@ const KYC = () => {
         className="absolute bg-red-800 w-full h-full top-0 left-0"
         resizeMode="cover"
       />
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        keyboardShouldPersistTaps="handled"
-      >
-        <View className="p-6 z-10 absolute mt-14 w-full h-full">
-          <Image source={image.logo} />
-          <View className="pt-8 flex-1">
-            <Text className="text-2xl font-medium text-general">
-              National ID Card
-            </Text>
 
-            {/* Name on NIC Input */}
-            <Controller
-              control={control}
-              name="nameOnNIC"
-              rules={validate.nameOnNIC}
-              render={({ field: { onChange, value } }) => (
-                <CustomInput
-                  title="Name on NIC"
-                  placeholder="Enter your name"
-                  value={value}
-                  handlechange={onChange}
-                  error={errors.nameOnNIC?.message}
-                />
-              )}
-            />
+      <View className="p-6 z-10 absolute mt-14 w-full h-full">
+        <Image source={image.logo} />
+        <View className="pt-8 flex-1">
+          <Text className="text-2xl font-medium text-general">
+            National ID Card
+          </Text>
 
-            {/* NIC Number Input */}
-            <Controller
-              control={control}
-              name="nicNumber"
-              rules={validate.nicNumber}
-              render={({ field: { onChange, value } }) => (
-                <CustomInput
-                  title="NIC Number"
-                  placeholder="Enter your NIC number"
-                  value={value}
-                  handlechange={onChange}
-                  error={errors.nicNumber?.message}
-                />
-              )}
-            />
+          {/* Name on NIC Input */}
+          <Controller
+            control={control}
+            name="nameOnNIC"
+            rules={validate.nameOnNIC}
+            render={({ field: { onChange, value } }) => (
+              <CustomInput
+                title="Name on NIC"
+                placeholder="Enter your name"
+                value={value}
+                handlechange={onChange}
+                error={errors.nameOnNIC?.message}
+              />
+            )}
+          />
 
-            {/* Clinic Name Input */}
-            <Controller
-              control={control}
-              name="clinicName"
-              rules={validate.clinicName}
-              render={({ field: { onChange, value } }) => (
-                <CustomInput
-                  title="Clinic Name"
-                  placeholder="Enter your clinic name"
-                  value={value}
-                  handlechange={onChange}
-                  error={errors.clinicName?.message}
-                />
-              )}
-            />
+          {/* NIC Number Input */}
+          <Controller
+            control={control}
+            name="nicNumber"
+            rules={validate.nicNumber}
+            render={({ field: { onChange, value } }) => (
+              <CustomInput
+                title="NIC Number"
+                placeholder="Enter your NIC number"
+                value={value}
+                handlechange={onChange}
+                error={errors.nicNumber?.message}
+              />
+            )}
+          />
 
-            {/* Role Input */}
-            <Controller
-              control={control}
-              name="role"
-              rules={validate.role}
-              render={({ field: { onChange, value } }) => (
-                <CustomInput
-                  title="Role"
-                  placeholder="Enter your role"
-                  value={value}
-                  handlechange={onChange}
-                  error={errors.role?.message}
-                />
-              )}
-            />
+          {/* Clinic Name Input */}
+          <Controller
+            control={control}
+            name="clinicName"
+            rules={validate.clinicName}
+            render={({ field: { onChange, value } }) => (
+              <CustomInput
+                title="Clinic Name"
+                placeholder="Enter your clinic name"
+                value={value}
+                handlechange={onChange}
+                error={errors.clinicName?.message}
+              />
+            )}
+          />
 
-            {/* Clinic Address Input */}
-            <Controller
-              control={control}
-              name="clinicAddress"
-              rules={validate.clinicAddress}
-              render={({ field: { onChange, value } }) => (
-                <CustomInput
-                  title="Clinic Address"
-                  placeholder="Enter your clinic address"
-                  value={value}
-                  handlechange={onChange}
-                  error={errors.clinicAddress?.message}
-                />
-              )}
-            />
-            {/* <View className="flex justify-end">
+          {/* Role Input */}
+          <Controller
+            control={control}
+            name="role"
+            rules={validate.role}
+            render={({ field: { onChange, value } }) => (
+              <CustomInput
+                title="Role"
+                placeholder="Enter your role"
+                value={value}
+                handlechange={onChange}
+                error={errors.role?.message}
+              />
+            )}
+          />
+
+          {/* Clinic Address Input */}
+          <Controller
+            control={control}
+            name="clinicAddress"
+            rules={validate.clinicAddress}
+            render={({ field: { onChange, value } }) => (
+              <CustomInput
+                title="Clinic Address"
+                placeholder="Enter your clinic address"
+                value={value}
+                handlechange={onChange}
+                error={errors.clinicAddress?.message}
+              />
+            )}
+          />
+          {/* <View className="flex justify-end">
               <CustomButton
                 title="Continue"
                 handlePress={handleSubmit(onSubmit)}
@@ -153,9 +150,8 @@ const KYC = () => {
                 textStyles="text-white"
               />
             </View> */}
-          </View>
         </View>
-      </ScrollView>
+      </View>
       <View className="p-6 absolute bottom-9 left-0 right-0">
         <CustomButton
           title="Continue to KYC"

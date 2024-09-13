@@ -58,64 +58,63 @@ const Login = () => {
         source={image.plainbg}
         style={{ position: "absolute", width: "100%", height: "100%" }}
       />
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        keyboardShouldPersistTaps="handled"
-      >
-        <View className="p-6 pt-16 w-full flex-1">
-          <Image source={image.logo} className="mb-8" />
 
-          <View className="flex-1">
-            <Text className="text-2xl font-normal text-general mb-6">Login</Text>
+      <View className="p-6 pt-16 w-full flex-1">
+        <Image source={image.logo} className="mb-8" />
 
-            {/* Email Input */}
-            <Controller
-              control={control}
-              name="email"
-              rules={validate.email}
-              render={({ field: { onChange, value } }) => (
-                <CustomInput
-                  title="Email"
-                  placeholder="Enter your email"
-                  value={value}
-                  handlechange={onChange}
-                  error={errors.email?.message}
-                />
-              )}
-            />
+        <View className="flex-1">
+          <Text className="text-2xl font-normal text-general ">Login</Text>
 
-            {/* Password Input */}
-            <Controller
-              control={control}
-              name="password"
-              rules={validate.password}
-              render={({ field: { onChange, value } }) => (
-                <CustomInput
-                  title="Password"
-                  placeholder="Enter your password"
-                  value={value}
-                  handlechange={onChange}
-                  error={errors.password?.message}
-                />
-              )}
-            />
-            <View className="flex-row items-center mt-7 justify-between">
-              <View className="flex-row items-center">
-                <Checkbox
-                  value={checked}
-                  onValueChange={setChecked}
-                  color={checked ? "#008543" : "#d9d9d9"}
-                  className={`mr-2`}
-                />
-                <Text>Remember me</Text>
-              </View>
-              <Link href="/forget-password" className="text-base font-normal text-[#C02286]">
-                Forget Password
-              </Link>
+          {/* Email Input */}
+          <Controller
+            control={control}
+            name="email"
+            rules={validate.email}
+            render={({ field: { onChange, value } }) => (
+              <CustomInput
+                title="Email"
+                placeholder="Enter your email"
+                value={value}
+                handlechange={onChange}
+                error={errors.email?.message}
+              />
+            )}
+          />
+
+          {/* Password Input */}
+          <Controller
+            control={control}
+            name="password"
+            rules={validate.password}
+            render={({ field: { onChange, value } }) => (
+              <CustomInput
+                title="Password"
+                placeholder="Enter your password"
+                value={value}
+                handlechange={onChange}
+                error={errors.password?.message}
+              />
+            )}
+          />
+          <View className="flex-row items-center mt-7 justify-between">
+            <View className="flex-row items-center">
+              <Checkbox
+                value={checked}
+                onValueChange={setChecked}
+                color={checked ? "#008543" : "#d9d9d9"}
+                className={`mr-2`}
+              />
+              <Text>Remember me</Text>
             </View>
+            <Link
+              href="/forget-password"
+              className="text-base font-normal text-[#C02286]"
+            >
+              Forget Password
+            </Link>
           </View>
         </View>
-      </ScrollView>
+      </View>
       {/* Submit Button */}
       <View className="p-6">
         <CustomButton
@@ -124,7 +123,7 @@ const Login = () => {
           containerStyles="bg-[#008543]"
           textStyles="text-white"
         />
-        <View className="flex-row items-center mt-4 justify-center gap-x-2">
+        <View className="flex-row items-center my-4 justify-center gap-x-2">
           <Text className="text-sm font-normal text-green-600">New here?</Text>
           <Link href="/signup" className="text-sm font-normal text-[#C02286]">
             Create Account

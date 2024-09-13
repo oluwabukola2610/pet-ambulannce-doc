@@ -5,7 +5,7 @@ const  Index = () => {
 
 //   if (isSignedIn) return <Redirect href="/(root)/(tabs)/home" />;
 
-  return <Redirect href="/home" />;
+  return <Redirect href="/university-info" />;
 };
 
 export default Index;
