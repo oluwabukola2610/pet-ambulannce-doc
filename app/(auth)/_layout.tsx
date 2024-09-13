@@ -11,6 +11,9 @@ export default function Layout() {
       <Stack.Screen name="change-password" options={{ headerShown: false }} />
       <Stack.Screen name="otp" options={{ headerShown: false }} />
       <Stack.Screen name="sucess" options={{ headerShown: false }} />
+      <Stack.Screen name="kyc" options={{ headerShown: false }} />
+      <Stack.Screen name="university-info" options={{ headerShown: false }} />
+
     </Stack>
   );
 }

@@ -25,6 +25,7 @@ export default function Success() {
           </Text>
         </View>
       </View>
+      
       {/* Continue Button */}
       <View className="p-6 absolute bottom-9 left-0 right-0">
         <CustomButton
