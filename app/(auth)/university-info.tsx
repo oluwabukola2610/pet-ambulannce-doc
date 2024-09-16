@@ -45,16 +45,18 @@ const Clinical = () => {
   };
 
   return (
-    <KeyboardAvoidingView
+    <View
       style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Image
         source={image.plainbg}
         className="absolute w-full h-full top-0 left-0"
         resizeMode="cover"
       />
-    
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled"
+      >
         <View className="p-6 z-10 w-full flex-1 mt-16">
           <Image source={image.logo} />
           <View className="pt-8 flex-1">
@@ -146,14 +148,15 @@ const Clinical = () => {
           {/* Button at the bottom */}
           <View className="flex justify-end">
             <CustomButton
-              title="Submit KYC"
-              handlePress={handleSubmit(onSubmit)}
+          title="Continue to KYC"
+          handlePress={handleSubmit(onSubmit)}
               containerStyles="bg-[#008543] mt-8 mb-10"
               textStyles="text-white"
             />
           </View>
         </View>
-    </KeyboardAvoidingView>
+      </ScrollView>
+    </View>
   );
 };
 

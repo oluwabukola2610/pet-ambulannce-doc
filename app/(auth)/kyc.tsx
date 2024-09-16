@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Image,
   Text,
-  KeyboardAvoidingView,
-  Platform,
   ScrollView,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
@@ -46,103 +44,106 @@ const KYC = () => {
   };
 
   return (
-    <KeyboardAvoidingView
+    <View
       style={{ flex: 1, position: "relative" }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      // behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Image
         source={image.plainbg}
         className="absolute bg-red-800 w-full h-full top-0 left-0"
         resizeMode="cover"
       />
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View className="p-6 z-10 absolute mt-14 w-full h-full">
+          <Image source={image.logo} />
+          <View className="pt-8 flex-1">
+            <Text className="text-2xl font-medium text-general">
+              National ID Card
+            </Text>
 
-      <View className="p-6 z-10 absolute mt-14 w-full h-full">
-        <Image source={image.logo} />
-        <View className="pt-8 flex-1">
-          <Text className="text-2xl font-medium text-general">
-            National ID Card
-          </Text>
+            {/* Name on NIC Input */}
+            <Controller
+              control={control}
+              name="nameOnNIC"
+              rules={validate.nameOnNIC}
+              render={({ field: { onChange, value } }) => (
+                <CustomInput
+                  title="Name on NIC"
+                  placeholder="Enter your name"
+                  value={value}
+                  handlechange={onChange}
+                  error={errors.nameOnNIC?.message}
+                />
+              )}
+            />
 
-          {/* Name on NIC Input */}
-          <Controller
-            control={control}
-            name="nameOnNIC"
-            rules={validate.nameOnNIC}
-            render={({ field: { onChange, value } }) => (
-              <CustomInput
-                title="Name on NIC"
-                placeholder="Enter your name"
-                value={value}
-                handlechange={onChange}
-                error={errors.nameOnNIC?.message}
-              />
-            )}
-          />
+            {/* NIC Number Input */}
+            <Controller
+              control={control}
+              name="nicNumber"
+              rules={validate.nicNumber}
+              render={({ field: { onChange, value } }) => (
+                <CustomInput
+                  title="NIC Number"
+                  placeholder="Enter your NIC number"
+                  value={value}
+                  handlechange={onChange}
+                  error={errors.nicNumber?.message}
+                />
+              )}
+            />
 
-          {/* NIC Number Input */}
-          <Controller
-            control={control}
-            name="nicNumber"
-            rules={validate.nicNumber}
-            render={({ field: { onChange, value } }) => (
-              <CustomInput
-                title="NIC Number"
-                placeholder="Enter your NIC number"
-                value={value}
-                handlechange={onChange}
-                error={errors.nicNumber?.message}
-              />
-            )}
-          />
+            {/* Clinic Name Input */}
+            <Controller
+              control={control}
+              name="clinicName"
+              rules={validate.clinicName}
+              render={({ field: { onChange, value } }) => (
+                <CustomInput
+                  title="Clinic Name"
+                  placeholder="Enter your clinic name"
+                  value={value}
+                  handlechange={onChange}
+                  error={errors.clinicName?.message}
+                />
+              )}
+            />
 
-          {/* Clinic Name Input */}
-          <Controller
-            control={control}
-            name="clinicName"
-            rules={validate.clinicName}
-            render={({ field: { onChange, value } }) => (
-              <CustomInput
-                title="Clinic Name"
-                placeholder="Enter your clinic name"
-                value={value}
-                handlechange={onChange}
-                error={errors.clinicName?.message}
-              />
-            )}
-          />
+            {/* Role Input */}
+            <Controller
+              control={control}
+              name="role"
+              rules={validate.role}
+              render={({ field: { onChange, value } }) => (
+                <CustomInput
+                  title="Role"
+                  placeholder="Enter your role"
+                  value={value}
+                  handlechange={onChange}
+                  error={errors.role?.message}
+                />
+              )}
+            />
 
-          {/* Role Input */}
-          <Controller
-            control={control}
-            name="role"
-            rules={validate.role}
-            render={({ field: { onChange, value } }) => (
-              <CustomInput
-                title="Role"
-                placeholder="Enter your role"
-                value={value}
-                handlechange={onChange}
-                error={errors.role?.message}
-              />
-            )}
-          />
-
-          {/* Clinic Address Input */}
-          <Controller
-            control={control}
-            name="clinicAddress"
-            rules={validate.clinicAddress}
-            render={({ field: { onChange, value } }) => (
-              <CustomInput
-                title="Clinic Address"
-                placeholder="Enter your clinic address"
-                value={value}
-                handlechange={onChange}
-                error={errors.clinicAddress?.message}
-              />
-            )}
-          />
-          {/* <View className="flex justify-end">
+            {/* Clinic Address Input */}
+            <Controller
+              control={control}
+              name="clinicAddress"
+              rules={validate.clinicAddress}
+              render={({ field: { onChange, value } }) => (
+                <CustomInput
+                  title="Clinic Address"
+                  placeholder="Enter your clinic address"
+                  value={value}
+                  handlechange={onChange}
+                  error={errors.clinicAddress?.message}
+                />
+              )}
+            />
+            {/* <View className="flex justify-end">
               <CustomButton
                 title="Continue"
                 handlePress={handleSubmit(onSubmit)}
@@ -150,17 +151,18 @@ const KYC = () => {
                 textStyles="text-white"
               />
             </View> */}
+          </View>
         </View>
-      </View>
-      <View className="p-6 absolute bottom-9 left-0 right-0">
-        <CustomButton
-          title="Continue to KYC"
-          handlePress={() => router.push("/home")}
-          containerStyles="bg-green-600"
-          textStyles="text-white"
-        />
-      </View>
-    </KeyboardAvoidingView>
+        <View className="p-6 absolute bottom-9 left-0 right-0">
+          <CustomButton
+            title="Continue to KYC"
+            handlePress={() => router.push("/home")}
+            containerStyles="bg-green-600"
+            textStyles="text-white"
+          />
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 

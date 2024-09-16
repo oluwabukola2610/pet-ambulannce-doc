@@ -3,7 +3,6 @@ import {
   View,
   Image,
   Text,
-  KeyboardAvoidingView,
   Platform,
   ScrollView,
   TouchableOpacity,
@@ -70,14 +69,12 @@ const CreateAccount = () => {
   };
 
   return (
-    <KeyboardAvoidingView
+    <View
       style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      // keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0} 
     >
       <Image
         source={image.plainbg}
-        className="absolute bg-red-800 w-full h-full top-0 left-0"
+        className="absolute w-full h-full top-0 left-0"
         resizeMode="cover"
       />
 
@@ -220,7 +217,7 @@ const CreateAccount = () => {
           </View>
         </View>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 
