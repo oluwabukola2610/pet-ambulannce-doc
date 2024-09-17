@@ -5,9 +5,9 @@ import {
   Image,
   TouchableOpacity,
   SafeAreaView,
-  Alert, // Import Alert for confirmation dialog
+  Alert, 
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons"; // For icons
+import { Ionicons } from "@expo/vector-icons"; 
 import { router } from "expo-router";
 
 const Settings = () => {
@@ -26,7 +26,7 @@ const Settings = () => {
           text: "Logout",
           onPress: () => {
             console.log("User logged out");
-            router.push("/login"); // Example route
+            router.push("/login"); 
           },
         },
       ],
