@@ -7,7 +7,7 @@ interface CustomOtpProps {
   title?: string;
   otherStyles?: string;
   count: number;
-  color?: string;  // color for OTP text, default is black (color: "#000")  // color for OTP text, default is black (color: "#000")   // color for OTP text, default is black (color: "#000")   // color for OTP text, default is black (color: "#000")   // color for OTP text, default is black (color: "#000")
+  color?: string;  
 }
 
 const CustomOtp: React.FC<CustomOtpProps> = ({

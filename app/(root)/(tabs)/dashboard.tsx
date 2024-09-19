@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { BarChart } from "react-native-chart-kit";
 import { image } from "@/constants";
+import { router } from "expo-router";
 
 const Dashboard = () => {
   const screenWidth = Dimensions.get("window").width;
@@ -70,7 +71,7 @@ const Dashboard = () => {
           <Text className="text-lg font-semibold text-[#18273B] mb-2">
             Create a personalized store
           </Text>
-          <TouchableOpacity className="bg-[#C02286] text-white p-2 rounded-lg w-[100px]">
+          <TouchableOpacity onPress={()=>router.push("/Personalstore")} className="bg-[#C02286] text-white p-2 rounded-lg w-[100px]">
             <Text className="text-white text-sm">Click here +</Text>
           </TouchableOpacity>
         </View>

@@ -15,8 +15,7 @@ import { router } from "expo-router";
 export default function Upload() {
   const [file, setFile] = useState("");
 
-  // Function to pick an image from
-  //the device's media library
+
   const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
