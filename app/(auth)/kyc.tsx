@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  View,
-  Image,
-  Text,
-  ScrollView,
-} from "react-native";
+import { View, Image, Text, ScrollView } from "react-native";
 import { useForm, Controller } from "react-hook-form";
-import moment from "moment";
 import { image } from "@/constants";
 import CustomInput from "@/components/CustomInput";
 import CustomButton from "@/components/CustomButton";
@@ -46,7 +40,6 @@ const KYC = () => {
   return (
     <View
       style={{ flex: 1, position: "relative" }}
-      // behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Image
         source={image.plainbg}
@@ -153,10 +146,10 @@ const KYC = () => {
             </View> */}
           </View>
         </View>
-        <View className="p-6 absolute bottom-9 left-0 right-0">
+        <View className="p-6 absolute bottom-9 left-0 right-0"style={{ zIndex: 10 }}>
           <CustomButton
             title="Continue to KYC"
-            handlePress={() => router.push("/home")}
+            handlePress={handleSubmit(onSubmit)}
             containerStyles="bg-green-600"
             textStyles="text-white"
           />

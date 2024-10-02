@@ -1,4 +1,3 @@
-
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { image } from "@/constants";

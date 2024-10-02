@@ -27,10 +27,10 @@ export default function Success() {
       </View>
       
       {/* Continue Button */}
-      <View className="p-6 absolute bottom-9 left-0 right-0">
+      <View className="p-6 absolute bottom-9 left-0 right-0" style={{ zIndex: 10 }}>
         <CustomButton
           title="Continue to KYC"
-          handlePress={() => router.push("/home")}
+          handlePress={() => router.push("/(auth)/kyc")}
           containerStyles="bg-green-600"
           textStyles="text-white"
         />
