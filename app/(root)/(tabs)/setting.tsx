@@ -22,6 +22,7 @@ const Settings = () => {
         {
           text: "Cancel",
         },
+        
         {
           text: "Logout",
           onPress: () => {
