@@ -5,9 +5,10 @@ import {
   Image,
   TouchableOpacity,
   SafeAreaView,
-  Alert, 
+  Alert,
+  Platform,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons"; 
+import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 const Settings = () => {
@@ -20,23 +21,27 @@ const Settings = () => {
       [
         {
           text: "Cancel",
-          style: "cancel",
         },
         {
           text: "Logout",
           onPress: () => {
             console.log("User logged out");
-            router.push("/login"); 
+            router.push("/login");
           },
         },
       ],
-      { cancelable: false }
+      { cancelable: true }
     );
   };
 
   return (
     <SafeAreaView className="flex-1 w-full bg-white">
-      <View className="flex-1 mt-4">
+      <View
+        style={{
+          marginTop: Platform.OS === "android" ? 60 : 20,
+        }}
+        className="flex-1"
+      >
         <View className="items-center p-4">
           <Image
             source={{ uri: profileImage }}
@@ -141,7 +146,9 @@ const Settings = () => {
             className="flex-row justify-center items-center p-4  rounded-lg"
           >
             <Ionicons name="log-out-outline" size={24} color="white" />
-            <Text className="ml-2 text-red-500 text-lg font-medium">Logout</Text>
+            <Text className="ml-2 text-red-500 text-lg font-medium">
+              Logout
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

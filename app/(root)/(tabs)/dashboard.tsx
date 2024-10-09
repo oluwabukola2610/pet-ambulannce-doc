@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+  Platform,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { BarChart } from "react-native-chart-kit";
 import { image } from "@/constants";
@@ -7,7 +14,6 @@ import { router } from "expo-router";
 
 const Dashboard = () => {
   const screenWidth = Dimensions.get("window").width;
-
   const chartData = {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     datasets: [
@@ -20,15 +26,24 @@ const Dashboard = () => {
 
   return (
     <View className="flex-1">
-      <View className="bg-[#028543] h-[300px] px-6 flex-row items-center justify-between">
-   
+      <View
+        style={{
+          backgroundColor: "#028543",
+          height: Platform.OS === "android" ? 270 : 300,
+          padding: 24,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexDirection: "row",
+        }}
+      >
         <View className="">
           <Text className="text-2xl font-medium text-white leading-9">
             Hey, Dr. Harbor!
           </Text>
           <Text className="text-lg text-white">Today is a busy day</Text>
         </View>
-        <TouchableOpacity className="rounded-lg p-3 bg-white">
+        <TouchableOpacity className="rounded-lg p-3 bg-white w-fit">
           <Ionicons name="notifications-outline" size={24} color="green" />
         </TouchableOpacity>
       </View>
@@ -71,24 +86,24 @@ const Dashboard = () => {
           <Text className="text-lg font-semibold text-[#18273B] mb-2">
             Create a personalized store
           </Text>
-          <TouchableOpacity onPress={()=>router.push("/Personalstore")} className="bg-[#C02286] text-white p-2 rounded-lg w-[100px]">
+          <TouchableOpacity
+            onPress={() => router.push("/Personalstore")}
+            className="bg-[#C02286] text-white p-2 rounded-lg w-[100px]"
+          >
             <Text className="text-white text-sm">Click here +</Text>
           </TouchableOpacity>
         </View>
         {/* Article Card Section */}
         <View className="flex-row bg-[#028543] p-4 rounded-lg items-center justify-between mt-6">
-          <View className="flex-1">
-            <Text className="text-sm text-gray-300 mb-4">
+          <View className="">
+            <Text className="text-sm text-gray-300 mb-4 max-w-[135px]">
               Customize your store to match your brand and reach more customers.
             </Text>
             <TouchableOpacity className="bg-[#C02286] text-white p-2 rounded-lg w-[120px]">
               <Text className="text-white text-sm">Read about us</Text>
             </TouchableOpacity>
           </View>
-          <Image
-            source={image.dog}
-            className="rounded-lg"
-          />
+          <Image source={image.dog} className="rounded-lg" />
         </View>
       </View>
     </View>

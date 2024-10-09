@@ -6,6 +6,7 @@ import {
   FlatList,
   SafeAreaView,
   Image,
+  Platform,
 } from "react-native";
 
 const appointmentData = [
@@ -94,8 +95,13 @@ const History = () => {
   );
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
-      <View className="flex-row items-center gap-x-4 p-4 my-4">
+    <View className="flex-1 bg-white">
+      <View
+        style={{
+          marginTop: Platform.OS === "android" ? 60 : 20,
+        }}
+        className="flex-row items-center gap-x-4 p-4"
+      >
         <Text className="text-xl font-medium">Appointment History</Text>
       </View>
 
@@ -131,7 +137,7 @@ const History = () => {
           </View>
         )}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
