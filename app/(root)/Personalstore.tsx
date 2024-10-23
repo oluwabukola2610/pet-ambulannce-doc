@@ -21,25 +21,28 @@ const Personalstore = () => {
     if (status !== "granted") {
       Alert.alert(
         "Permission Denied",
-        `Sorry, we need camera 
-                   roll permission to upload images.`
+        `Sorry, we need camera roll permission to upload images.`
       );
     } else {
-      const result = await ImagePicker.launchImageLibraryAsync();
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
       if (!result.canceled) {
         setFile(result.assets[0].uri);
       }
     }
   };
+
   return (
     <SafeAreaView className="flex-1 bg-white p-4">
       <View className="flex-row items-center gap-x-12 p-4 my-4">
         <TouchableOpacity onPress={() => router.back()}>
           <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
-        <Text className="text-2xl font-bold text-center ">
-          Add Product
-        </Text>
+        <Text className="text-2xl font-bold text-center">Add Product</Text>
       </View>
 
       <View className="bg-white p-4 rounded-lg shadow-md">
@@ -95,21 +98,24 @@ const Personalstore = () => {
           />
         </View>
 
+        {/* Image Picker Section */}
         <View className="border rounded-lg flex items-center justify-center border-gray-300 h-[200px] w-full mt-6">
           {file ? (
             <Image
               source={{ uri: file }}
-              className="!w-full h-full"
+              className="w-full h-full"
               resizeMode="contain"
             />
           ) : (
-            <Text className="text-center text-gray-400 text-lg">
-              No Image Selected
-            </Text>
+            <TouchableOpacity onPress={pickImage}>
+              <Text className="text-center text-gray-400 text-lg">
+                click to select Image
+              </Text>
+            </TouchableOpacity>
           )}
         </View>
       </View>
-      {/* Add Product Button */}
+
       <TouchableOpacity
         className="bg-[#008543] p-3 rounded-lg mx-4 mt-6"
         onPress={() => alert("Product added")}
