@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
   Platform,
+  ScrollView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { BarChart } from "react-native-chart-kit";
@@ -25,7 +26,7 @@ const Dashboard = () => {
   };
 
   return (
-    <View className="flex-1">
+    <ScrollView className="flex-1">
       <View
         style={{
           backgroundColor: "#028543",
@@ -107,7 +108,7 @@ const Dashboard = () => {
           <Image source={image.dog} className="rounded-lg" />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
